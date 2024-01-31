@@ -1,9 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+import { baseUrl } from "../..";
+
 export const postOfFollowing = createAsyncThunk("postOfFollowing", async () => {
     try {
-        const response = await axios.get("http://localhost:5000/api/v1/post", { withCredentials: true });
+        const response = await axios.get(`${baseUrl}/api/v1/post`, { withCredentials: true });
         return response.data;
 
     } catch (error) {
@@ -18,7 +20,7 @@ export const postOfFollowing = createAsyncThunk("postOfFollowing", async () => {
 
 export const likeAndUnlikePost = createAsyncThunk("likeAndUnlikePost", async (postId) => {
     try {
-        const response = await axios.get(`http://localhost:5000/api/v1/post/${postId}`, { withCredentials: true })
+        const response = await axios.get(`${baseUrl}/api/v1/post/${postId}`, { withCredentials: true })
         return response.data;
 
     } catch (error) {
@@ -33,7 +35,7 @@ export const likeAndUnlikePost = createAsyncThunk("likeAndUnlikePost", async (po
 
 export const commentAdd = createAsyncThunk("commentAdd", async ({ commentText, postId }) => {
     try {
-        const response = await axios.put(`/api/v1/post/comments/${postId}`, { commentText },
+        const response = await axios.put(`${baseUrl}/api/v1/post/comments/${postId}`, { commentText },
 
             { withCredentials: true }
         );
@@ -54,7 +56,7 @@ export const commentAdd = createAsyncThunk("commentAdd", async ({ commentText, p
 
 export const commentDelete = createAsyncThunk("commentDelete", async ({ postId, commentId }) => {
     try {
-        const response = await axios.delete(`/api/v1/post/comments/${postId}`, { data: { commentId }, withCredentials: true });
+        const response = await axios.delete(`${baseUrl}/api/v1/post/comments/${postId}`, { data: { commentId }, withCredentials: true });
 
         return response.data;
 
@@ -70,7 +72,7 @@ export const commentDelete = createAsyncThunk("commentDelete", async ({ postId, 
 export const getMyPost = createAsyncThunk("getMyPost", async () => {
     try {
 
-        const response = await axios.get("/api/v1/mypost", { withCredentials: true })
+        const response = await axios.get(`${baseUrl}/api/v1/mypost`, { withCredentials: true })
 
         return response.data;
 
@@ -84,7 +86,7 @@ export const getMyPost = createAsyncThunk("getMyPost", async () => {
 
 export const uploadPost = createAsyncThunk("uploadPost", async ({ caption, image }) => {
     try {
-        const response = await axios.post('/api/v1/post/upload', { caption, image },
+        const response = await axios.post(`${baseUrl}/api/v1/post/upload`, { caption, image },
             {
                 headers: {
                     "Content-Type": "application/json",
@@ -109,7 +111,7 @@ export const captionUpdate = createAsyncThunk("captionUpdate", async ({ captionU
     console.log(captionUpdateText, postId);
     try {
 
-        const response = await axios.put(`/api/v1/post/${postId}`, { captionUpdateText }, {
+        const response = await axios.put(`${baseUrl}/api/v1/post/${postId}`, { captionUpdateText }, {
             headers: {
                 "Content-Type": "application/json"
             },
@@ -129,7 +131,7 @@ export const captionUpdate = createAsyncThunk("captionUpdate", async ({ captionU
 
 export const deletePost = createAsyncThunk("deletePost", async (postId) => {
     try {
-        const response = await axios.delete(`/api/v1/post/${postId}`, { withCredentials: true })
+        const response = await axios.delete(`${baseUrl}/api/v1/post/${postId}`, { withCredentials: true })
         return response.data;
 
     } catch (err) {
@@ -143,7 +145,7 @@ export const deletePost = createAsyncThunk("deletePost", async (postId) => {
 export const getUserPost = createAsyncThunk("getUserPost", async (userId) => {
     try {
 
-        const response = await axios.get(`/api/v1/userposts/${userId}`, { withCredentials: true });
+        const response = await axios.get(`${baseUrl}/api/v1/userposts/${userId}`, { withCredentials: true });
         return response.data;
 
     } catch (err) {

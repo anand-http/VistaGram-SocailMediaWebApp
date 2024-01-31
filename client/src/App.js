@@ -15,6 +15,7 @@ import ForgotPassword from './components/ForgetPassword/forgotPassword';
 import ResetPassword from './components/ResetPassword/resetPassword';
 import UserProfile from './components/UserProfile/userProfile';
 import Search from './components/Search/search';
+import NotFound from './components/NotFound/NotFound';
 
 const App = () => {
   const dispatch = useDispatch();

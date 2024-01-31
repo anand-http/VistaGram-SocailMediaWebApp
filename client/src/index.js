@@ -4,9 +4,11 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import { Provider as AlertProvider, transitions,positions  } from 'react-alert';
+import { Provider as AlertProvider, transitions, positions } from 'react-alert';
 
 import AlertTemplate from 'react-alert-template-basic';
+
+export const baseUrl = "https://vistagramserver.onrender.com"
 
 const options = {
   position: positions.BOTTOM_CENTER,

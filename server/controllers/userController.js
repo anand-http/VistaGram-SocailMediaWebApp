@@ -4,9 +4,6 @@ import { sendEmail } from "../middleware/sendMail.js";
 import crypto from 'crypto';
 import cloudinary from 'cloudinary';
 
-
-
-
 export const register = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -29,7 +26,8 @@ export const register = async (req, res) => {
 
         const options = {
             expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
-            httpOnly: true
+            httpOnly: true,
+            sameSite:"none"
         }
 
         res.status(201).cookie("token", token, options).json({
@@ -78,8 +76,7 @@ export const login = async (req, res) => {
         const options = {
             expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
             httpOnly: true,
-            sameSite: 'lax',
-
+            sameSite: 'none',
         }
 
         res.status(200).cookie("token", token, options).json({

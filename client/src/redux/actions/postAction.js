@@ -91,8 +91,9 @@ export const uploadPost = createAsyncThunk("uploadPost", async ({ caption, image
                 headers: {
                     "Content-Type": "application/json",
                 },
-            },
-            { withCredentials: true })
+                withCredentials: true
+            }
+        )
 
         return response.data;
 
@@ -111,12 +112,14 @@ export const captionUpdate = createAsyncThunk("captionUpdate", async ({ captionU
     console.log(captionUpdateText, postId);
     try {
 
-        const response = await axios.put(`${baseUrl}/api/v1/post/${postId}`, { captionUpdateText }, {
+        const response = await axios.put(`${baseUrl}/api/v1/post/${postId}`, { captionUpdateText },
+         {
             headers: {
                 "Content-Type": "application/json"
             },
-        },
-            { withCredentials: true })
+            withCredentials: true
+        }
+        )
         return response.data;
 
     } catch (err) {

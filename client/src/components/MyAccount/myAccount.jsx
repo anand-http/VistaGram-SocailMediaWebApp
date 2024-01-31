@@ -11,6 +11,7 @@ import { userLogout, deleteAccount, UserLoad, clearUserMessage } from '../../red
 import { useAlert } from 'react-alert';
 import { clearMessage } from '../../redux/actions/postAction';
 import Loader from '../Loader/loader';
+import Logo from '../Logo/logo';
 
 const MyAccount = () => {
     const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const MyAccount = () => {
     const [followingsBox, setFollowingsBox] = useState(false);
 
 
-    const { myPostLoading, myPost, likeError,comment, commentError,dltComment, dltCommentError } = useSelector((state) => state.Post)
+    const { myPostLoading, myPost, likeError, comment, commentError, dltComment, dltCommentError } = useSelector((state) => state.Post)
 
     const { userLoadData, deleteProfile, deleteProfileError, deleteProfileLoading, logoutError } = useSelector((state) => state.User)
 
@@ -36,30 +37,30 @@ const MyAccount = () => {
 
     useEffect(() => {
         if (comment) {
-          alert.success(comment.message);
-          dispatch(clearMessage());
-    
+            alert.success(comment.message);
+            dispatch(clearMessage());
+
         }
         if (commentError) {
-          alert.error(commentError);
-          dispatch(clearMessage());
+            alert.error(commentError);
+            dispatch(clearMessage());
         }
-    
-      }, [alert, comment, commentError, dispatch]);
-    
-    
-      useEffect(() => {
+
+    }, [alert, comment, commentError, dispatch]);
+
+
+    useEffect(() => {
         if (dltComment) {
-          alert.success(dltComment.message);
-          dispatch(clearMessage());
-    
+            alert.success(dltComment.message);
+            dispatch(clearMessage());
+
         }
         if (dltCommentError) {
-          alert.error(dltCommentError);
-          dispatch(clearMessage());
+            alert.error(dltCommentError);
+            dispatch(clearMessage());
         }
-    
-      }, [alert, dltComment, dltCommentError, dispatch]);
+
+    }, [alert, dltComment, dltCommentError, dispatch]);
 
 
     useEffect(() => {
@@ -105,7 +106,7 @@ const MyAccount = () => {
             dispatch(clearUserMessage());
         }
 
-    }, [deleteProfile, deleteProfileError, alert, dispatch])
+    }, [deleteProfileError, alert, dispatch])
 
 
 
@@ -115,6 +116,7 @@ const MyAccount = () => {
 
             <div className='account'>
 
+                <Logo />
 
                 <div className="accountright">
 
@@ -183,7 +185,7 @@ const MyAccount = () => {
                                 />
                             )
 
-                        }) : <h1 style={{textAlign:"center"}}>Create Post</h1>
+                        }) : <h1 style={{ textAlign: "center" }}>Create Post</h1>
                     }
 
                 </div>

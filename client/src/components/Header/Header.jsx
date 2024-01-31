@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
-import { Home, HomeOutlined, Add, AddOutlined, Search, SearchOutlined, AccountCircle, AccountCircleOutlined } from '@mui/icons-material';
+import { Home, HomeOutlined, Add, AddOutlined, Search, SearchOutlined } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
-import { Avatar } from '@mui/material';
+import { Avatar,Typography } from '@mui/material';
 
 function Header() {
     const [tab, setTab] = useState(window.location.pathname);
@@ -14,6 +14,8 @@ function Header() {
 
     return (
         <div className='header'>
+
+            <Typography>Vistagram</Typography>
 
             <Link to={"/"} onClick={() => setTab('/')}>
                 {
@@ -37,7 +39,7 @@ function Header() {
                     tab === '/account' ? <AccountCircle style={{ color: "black" }} /> : <AccountCircleOutlined />
                 } */}
 
-                <Avatar src={user.avatar.url} sx={{width:"1.7rem",height:"1.7rem"}} />
+                <Avatar src={user.avatar.url} sx={{width:"1.8rem",height:"1.8rem",textAlign:"center"}} />
             </Link>
 
         </div>

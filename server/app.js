@@ -10,7 +10,8 @@ dotenv.config({
 })
 
 const corsOptions = {
-    origin: 'https://vistagramm.netlify.app',
+    origin: 'http://localhost:3000',
+    // origin: 'https://vistagramm.netlify.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 };

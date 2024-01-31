@@ -12,15 +12,22 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-@media screen and (max-width:768px) {
-    .header {
-        width: 100vw;
-        height: 5vh;
-        bottom: 0;
-        position: fixed;
-        flex-direction: row;
+@font-face {
+    font-family: "insta";
+    src: url(../../instagram-new-font/Demo_Fonts/Fontspring-DEMO-blue_vinyl_regular_ps_ot.otf);
+}
+
+.header>p{
+   font-family: "insta";
+   font-size: 1.5rem;
+}
+
+@media screen and (max-width:601px) {
+    .header>p{
+        display: none;
     }
 }
+
 
 .header>a>svg {
     width: 8vw;
@@ -40,5 +47,15 @@
 
     .header>a>svg {
         font-size: 8vw;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .header {
+        width: 100vw;
+        height: 7vh;
+        bottom: 0;
+        position: fixed;
+        flex-direction: row;
     }
 }

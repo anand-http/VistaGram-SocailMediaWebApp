@@ -9,6 +9,7 @@ import { Provider as AlertProvider, transitions, positions } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 
 export const baseUrl = "https://vistagramserver.onrender.com"
+// export const baseUrl = "http://localhost:5000"
 
 const options = {
   position: positions.BOTTOM_CENTER,

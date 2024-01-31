@@ -11,7 +11,9 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 const UpdatePassword = () => {
     const [oldPassword, setOldPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
+
+    const [showPassword1, setShowPassword1] = useState(false);
+    const [showPassword2, setShowPassword2] = useState(false);
 
 
     const dispatch = useDispatch();
@@ -48,22 +50,23 @@ const UpdatePassword = () => {
 
 
                 <div className="updatePasswordInputWrapper">
-                    <input className='updatePasswordInputs' required type={showPassword ? "text" : "password"} placeholder='Enter Old Password'
+
+                    <input className='updatePasswordInputs' required type={showPassword1 ? "text" : "password"} placeholder='Enter Old Password'
                         value={oldPassword} onChange={(e) => { setOldPassword(e.target.value) }}
                     />
                     {
                         oldPassword &&
-                        <span onClick={() => setShowPassword(!showPassword)}>{showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}</span>
+                        <span onClick={() => setShowPassword1(!showPassword1)}>{showPassword1 ? <VisibilityOffIcon /> : <VisibilityIcon />}</span>
                     }
                 </div>
 
                 <div className="updatePasswordInputWrapper">
-                    <input className='updatePasswordInputs' required type={showPassword ? "text" : "password"} placeholder='Enter new Password'
+                    <input className='updatePasswordInputs' required type={showPassword2 ? "text" : "password"} placeholder='Enter new Password'
                         value={newPassword} onChange={(e) => setNewPassword(e.target.value)}
                     />
                     {
                         newPassword &&
-                        <span onClick={() => setShowPassword(!showPassword)}>{showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}</span>
+                        <span onClick={() => setShowPassword2(!showPassword2)}>{showPassword2 ? <VisibilityOffIcon /> : <VisibilityIcon />}</span>
                     }
                 </div>
 

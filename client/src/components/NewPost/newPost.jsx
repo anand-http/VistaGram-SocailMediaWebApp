@@ -7,6 +7,7 @@ import { useAlert } from 'react-alert';
 import { useNavigate } from 'react-router-dom';
 import { UserLoad } from '../../redux/actions/userAction';
 import { clearMessage } from '../../redux/actions/postAction';
+import Logo from '../Logo/logo';
 
 const NewPost = () => {
     const [caption, setCaption] = useState("");
@@ -57,8 +58,8 @@ const NewPost = () => {
 
     return (
         <div className='newPost'>
+            <Logo/>
             <form className='newPostForm' onSubmit={addPost}>
-                <Typography variant="h4">VistaGram</Typography>
                 {image && <img src={image} alt={"mypost"} />}
                 <input type="file" accept='image/*' onChange={handleImage} />
                 <input type="text" placeholder='Caption...' value={caption} onChange={(e) => setCaption(e.target.value)} />

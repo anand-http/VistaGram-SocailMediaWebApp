@@ -45,6 +45,10 @@ const UserSlice = createSlice({
         followLoading: false,
         followError: null,
 
+        followUser: null,
+        followUserLoading: false,
+        followUserError: null,
+
         isAuthenticated: false,
     },
     extraReducers: (builder) => {
@@ -230,20 +234,20 @@ const UserSlice = createSlice({
 
 
         builder.addCase(followAndUnfollow.pending, (state) => {
-            state.isLoading = true;
+            state.followUserLoading = true;
         });
 
         builder.addCase(followAndUnfollow.fulfilled, (state, action) => {
-            state.isLoading = false;
-            state.data = action.payload;
-            state.error = null;
+            state.followUserLoading = false;
+            state.followUser = action.payload;
+            state.followUserError = null;
 
         })
 
         builder.addCase(followAndUnfollow.rejected, (state, action) => {
-            state.isLoading = false;
-            state.error = action.error.message;
-            state.data = null;
+            state.followUserLoading = false;
+            state.followUserError = action.error.message;
+            state.followUser = null;
         })
 
 

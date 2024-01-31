@@ -5,6 +5,7 @@ import { getAllUser } from '../../redux/actions/userAction';
 import { useDispatch, useSelector } from 'react-redux';
 import User from '../User/user';
 import { Link } from 'react-router-dom';
+import Logo from '../Logo/logo';
 
 const Search = () => {
     const [searchText, setSearchText] = useState("");
@@ -19,6 +20,7 @@ const Search = () => {
     }
     return (
         <div className='search'>
+            <Logo/>
             <form className='searchForm' onSubmit={handleSearch}>
                 <Typography variant='h4'></Typography>
 

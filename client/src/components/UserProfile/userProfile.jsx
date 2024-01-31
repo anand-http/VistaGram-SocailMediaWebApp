@@ -9,6 +9,7 @@ import { followAndUnfollow } from '../../redux/actions/userAction';
 import Loader from '../Loader/loader';
 import { clearMessage } from '../../redux/actions/postAction';
 import { useAlert } from 'react-alert';
+import Logo from '../Logo/logo';
 
 const UserProfile = () => {
     const params = useParams();
@@ -26,11 +27,12 @@ const UserProfile = () => {
     const posts = userPost?.posts;
 
 
-    const { userLoadData, followw, followLoading } = useSelector((state) => state.User)
+    const { userLoadData, followw, followLoading, data, error } = useSelector((state) => state.User)
     const loggedInUser = userLoadData?.user;
     const user = followw?.user;
     const userfollowers = user?.followers;
     const userfollowings = user?.followings;
+
 
 
 
@@ -69,6 +71,7 @@ const UserProfile = () => {
         dispatch(getUserProfile(userId));
     }
 
+
     useEffect(() => {
 
         dispatch(getUserPost(userId));
@@ -92,6 +95,7 @@ const UserProfile = () => {
         followLoading || userPostLoading ? <Loader /> :
 
             < div className='account' >
+                <Logo />
 
                 <div className="accountright">
                     {

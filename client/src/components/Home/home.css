@@ -26,14 +26,19 @@
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
+.homeright>a {
+  flex-direction: column;
+}
+
 .homeUser {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.507);
   transition: all 0.5s;
-  margin-right: 3vmax;
+  margin: 0 2vmax;
+
 }
 
 .homeUser>img {

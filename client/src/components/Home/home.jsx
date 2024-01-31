@@ -8,6 +8,7 @@ import { getAllUser } from '../../redux/actions/userAction';
 import { useAlert } from 'react-alert';
 import { clearMessage } from '../../redux/actions/postAction';
 import Loader from '../Loader/loader';
+import Logo from '../Logo/logo';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -74,9 +75,9 @@ const Home = () => {
 
 
   return (
-    isLoading || getAllUserLoading ? <Loader/> :
+    isLoading || getAllUserLoading ? <Loader /> :
       <div className='home'>
-
+        <Logo/>
         <div className="homeright">
           {
             users && users.length > 0 ?
@@ -113,7 +114,7 @@ const Home = () => {
                   />
                 )
               })
-              : <h1 style={{textAlign:"center"}}>Follow User to see thier Post</h1>
+              : <h1 style={{ textAlign: "center" }}>Follow User to see thier Post</h1>
           }
 
 

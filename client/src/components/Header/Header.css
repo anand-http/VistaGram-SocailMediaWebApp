@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100vh;
+    width: 10vw;
+    background-color: white;
+    position: fixed;
+    left: 0;
+    z-index: 5;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+@media screen and (max-width:768px) {
+    .header {
+        width: 100vw;
+        height: 5vh;
+        bottom: 0;
+        position: fixed;
+        flex-direction: row;
+    }
+}
+
+.header>a>svg {
+    width: 8vw;
+    color: gray;
+}
+
+.header>a>svg:hover {
+    transform: scale(1.3);
+    color: black;
+}
+
+
+@media screen and (max-width:600px) {
+    .header>a {
+        margin: 2vw 10vw;
+    }
+
+    .header>a>svg {
+        font-size: 8vw;
+    }
+}

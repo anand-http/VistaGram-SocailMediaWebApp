@@ -3,6 +3,8 @@ import ConnectDb from './config/database.js';
 
 import cloudinary from 'cloudinary';
 
+const port = process.env.PORT || 6010;
+
 ConnectDb();
 
 cloudinary.config({
@@ -12,5 +14,5 @@ cloudinary.config({
 });
 
 app.listen(process.env.PORT, () => {
-    console.log("Server is running on port ", process.env.PORT);
+    console.log("Server is running on port ", port);
 })

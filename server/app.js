@@ -10,9 +10,9 @@ dotenv.config({
 })
 
 const corsOptions = {
-    origin: 'http://localhost:3000', // Replace with your allowed origin(s)
+    origin: 'https://vistagramm.netlify.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // Enable CORS with credentials (e.g., cookies)
+    credentials: true,
 };
 
 //Middleware
